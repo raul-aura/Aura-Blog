@@ -254,6 +254,8 @@ a:hover {
     display: block;
     width: 64px;
     height: 64px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
     background-image: url('https://raul-aura.github.io/Aura-Blog/Icon_Home1.png');
     background-size: cover; 
     background-position: center;
@@ -264,6 +266,12 @@ a:hover {
 .home-button:hover {
     transform: scale(1.1); 
     background-image: url('https://raul-aura.github.io/Aura-Blog/Icon_Home2.png');
+}
+
+#app {
+    position: absolute;
+    bottom: 10px; 
+    left: 10px; 
 }
 
 /* Columns
@@ -957,6 +965,26 @@ body.mobile {
   </head>
 
   <body expr:class='&quot;loading&quot; + data:blog.mobileClass'>
+        <div id='app'/>
+<script src='https://unpkg.com/webamp@1.4.2/built/webamp.bundle.min.js'/>
+<script>
+    const Webamp = window.Webamp;
+const webamp = new Webamp({
+  initialTracks: [{
+    metaData: {
+      artist: &quot;Charli XCX, Lorde&quot;,
+      title: &quot;Clawbs&quot;,
+    },
+    url: &quot;https://raul-aura.github.io/Aura-Blog/music/Clawbs.mp3&quot;
+  }],
+  initialSkin: {
+    url: &quot;https://raul-aura.github.io/Aura-Blog/dosamp.wsz&quot;
+  },
+  zIndex: 99999,
+});
+    webamp.renderWhenReady(document.getElementById(&quot;app&quot;));
+    webamp.play();
+</script>
   <b:section class='navbar' id='navbar' maxwidgets='1' name='Navbar' showaddelement='no'>
     <b:widget id='Navbar1' locked='false' title='Navbar' type='Navbar'>
       <b:includable id='main'>&lt;script type=&quot;text/javascript&quot;&gt;
@@ -1157,7 +1185,7 @@ head.appendChild(script);
     <div class='fauxborder-left tabs-fauxborder-left'>
     <div class='fauxborder-right tabs-fauxborder-right'/>
     <div class='region-inner tabs-inner'>
-      <a class='home-button' href='https://yourbloggerhomepage.com'/>
+      <a class='home-button' href='https://auracpp.blogspot.com/'/>
       <!--
 needs to add more buttons here
 	  -->
@@ -2271,7 +2299,7 @@ needs to add more buttons here
     </div>
   </b:includable>
   </b:widget>
-  <b:widget id='HTML1' locked='false' title='' type='HTML'>
+  <b:widget id='HTML1' locked='false' title='' type='HTML' version='1'>
     <b:widget-settings>
       <b:widget-setting name='content'><![CDATA[<div id='RPGMaker'>
                     <script type="text/javascript" src="https://mal.ophanimkei.com/onionring-variables.js"></script>
@@ -2285,6 +2313,15 @@ needs to add more buttons here
   </b:if>
   <div class='widget-content'>
     <data:content/>
+    <!--buttons, webrings and etc-->
+        <img src='https://raul-aura.github.io/Aura-Blog/xp(1).gif'/>
+        <img src='https://raul-aura.github.io/Aura-Blog/e4.jpg'/>
+        <img src='https://raul-aura.github.io/Aura-Blog/e19.gif'/>
+        <img src='https://raul-aura.github.io/Aura-Blog/webexpert.gif'/>
+        <img src='https://raul-aura.github.io/Aura-Blog/scp.gif'/>
+        <img src='https://raul-aura.github.io/Aura-Blog/screw.gif'/>
+        <img src='https://raul-aura.github.io/Aura-Blog/wii_button.gif'/>
+        <img src='https://raul-aura.github.io/Aura-Blog/tiredalien2.gif'/>
   </div>
 
   <b:include name='quickedit'/>
