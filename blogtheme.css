@@ -1,0 +1,35 @@
+/* 
+-------------------------------------
+made by aura
+-------------------------------------
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+	background: #dcd9c9;
+    font-family: 'Azeret Mono', serif;
+    font-size: .8rem;
+    letter-spacing: -1px;
+    color: #100f10;
+}
+
+a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+	text-decoration: none;
+    letter-spacing: normal;
+    color: #265158;
+}
+
+footer {
+	text-align: center;
+}
+
+.post {
+    border: 21px solid transparent;
+	border-image-source: url(https://raul-aura.github.io/Aura-Blog/images/box1.png);
+    border-image-slice: 14 21 15 21; 
+    border-image-repeat: repeat;
+    padding: 15px;
+}
