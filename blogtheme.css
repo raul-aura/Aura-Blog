@@ -6,30 +6,67 @@ made by aura
 
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
-	background: #dcd9c9;
+:root {
+    --black: #100f10;
+    --blue: #265158;
+    --dark-brown: #261A17;
+    --white: #dcd9c9;
+    --brown: #8F634F;
+}
+
+/* base theme*/
+html {
     font-family: 'Azeret Mono', serif;
     font-size: .8rem;
     letter-spacing: -1px;
-    color: #100f10;
+    color: var(--black);
+    background: var(--white);
+    background-image: url('images/bg1.png');
+    background-repeat: repeat;
+    image-rendering: pixelated;
 }
 
-a {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1rem;
-	text-decoration: none;
-    letter-spacing: normal;
-    color: #265158;
+body {
+	max-width: 1200px;
+    margin: 0px auto;
+    width: 80%;
+}
+
+header {
+    height: 300px;
 }
 
 footer {
 	text-align: center;
 }
 
-.post {
-    border: 21px solid transparent;
-	border-image-source: url(https://raul-aura.github.io/Aura-Blog/images/box1.png);
-    border-image-slice: 14 21 15 21; 
+a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+	text-decoration: none;
+    color: var(--blue);
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.box {
+    background: var(--white);
+    margin: 2rem;
+    padding: .5rem;
+    border: 2rem solid transparent;
+	border-image-source: url('images/box2.png');
+    border-image-slice: 16; 
     border-image-repeat: repeat;
-    padding: 15px;
+    border-image-outset: .5rem;
+}
+
+/* blog */
+.post {
+    border: 2rem solid transparent;
+	border-image-source: url('images/box1.png');
+    border-image-slice: 16; 
+    border-image-repeat: repeat;
+    padding: 0px;
 }
