@@ -29,6 +29,7 @@ body {
 	max-width: 1200px;
     margin: 0px auto;
     width: 80%;
+    background: transparent;
 }
 
 header {
@@ -37,6 +38,7 @@ header {
 
 footer {
 	text-align: center;
+    margin: 2rem;
 }
 
 a {
@@ -62,10 +64,35 @@ a:hover{
 }
 
 /* blog */
-.blog-posts {
+
+.date-posts {
+    background: var(--white);
     border: 2rem solid transparent;
 	border-image-source: url('images/box1.png');
     border-image-slice: 16; 
     border-image-repeat: repeat;
-    padding: 0px;
+    padding: .5rem;
+}
+
+.date-header {
+    display: inline-block;
+    background: var(--brown);
+    border: .1rem solid var(--black);
+    margin: 0%;
+    padding: .5rem;
+}
+
+.post {
+    margin-left: 1rem;
+}
+
+iframe {
+    border: .1rem solid var(--black);
+}
+
+#blog-pager {
+    display: inline-block;
+    background: var(--white);
+    margin: 0%;
+    padding: .5rem;
 }

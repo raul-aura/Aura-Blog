@@ -10,7 +10,7 @@
  <header class='box' id='header'>
   </header>
 <!-- main section with blog -->
- <div class='box' id='main'>
+ <div class='main' id='main'>
   <b:section id='blog'>
     <b:widget id='Blog1' locked='true' title='Postagens no blog' type='Blog'>
     <b:widget-settings>
