@@ -20,7 +20,6 @@ html {
     font-size: .8rem;
     letter-spacing: -1px;
     color: var(--black);
-    background: var(--white);
     background-image: url('images/bg1.png');
     background-repeat: repeat;
     image-rendering: pixelated;
@@ -63,7 +62,7 @@ a:hover{
 }
 
 /* blog */
-.post {
+.blog-posts {
     border: 2rem solid transparent;
 	border-image-source: url('images/box1.png');
     border-image-slice: 16; 
