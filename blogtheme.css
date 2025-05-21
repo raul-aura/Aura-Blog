@@ -8,8 +8,9 @@ made by aura
 
 :root {
     --black: #100f10;
-    --blue: #89a6c1;
-    --darkblue: #0d1526;
+    --lightblue: #89a6c1;
+    --blue: #728ca3;
+    --darkblue: #172442;
     --dark-brown: #261A17;
     --white: #dcd9c9;
     --brown: #8F634F;
@@ -18,7 +19,8 @@ made by aura
 /* base theme*/
 html {
     font-family: 'DM Sans', serif;
-    font-size: .8rem;
+    font-size: .9rem;
+    font-weight: 500;
     letter-spacing: -1px;
     color: var(--black);
     background-image: url('images/bg1.png');
@@ -35,6 +37,13 @@ body {
     background: transparent;
 }
 
+.main {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
 header {
     display: flex;
     margin: 5rem 2rem 2rem;
@@ -45,21 +54,22 @@ header {
 footer {
 	text-align: center;
     margin: 2rem;
+    color: var(--lightblue);
 }
 
 a {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 	text-decoration: none;
-    color: var(--blue);
-}
-
-a footer {
-    color: var(--blue);
+    color: var(--darkblue);
 }
 
 a:hover{
     text-decoration: underline;
+}
+
+footer a {
+    color: var(--lightblue);
 }
 
 .box {
@@ -144,4 +154,25 @@ iframe {
 
 h3 a {
     font-size: 1.3em;
+}
+
+/* sidebar */
+
+.sidebar {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about {
+    background-color: var(--darkblue);
+    color: var(--white);
+    padding: 1rem;
+}
+
+.games {
+    background-color: var(--white);
+    padding: 1rem;
 }
