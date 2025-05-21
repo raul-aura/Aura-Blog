@@ -7,7 +7,17 @@
 <b:skin><![CDATA[]]></b:skin>
 </head>
 <body>
- <header class='box' id='header'>
+ <header id='header'>
+ <div class='frames' id='frame1'>
+  <img  src="images/frame1.png"></img>
+ </div>
+ <div class='frames' id='frame2'>
+  <img src="images/frame2.png"></img>
+  <img id='frame3' src="images/frame3.png"></img>
+ </div>
+  <div class='frames' id='frame4'>
+   <img src="images/frame4.png"></img>
+ </div>
   </header>
 <!-- main section with blog -->
  <div class='main' id='main'>

@@ -4,11 +4,12 @@ made by aura
 -------------------------------------
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 :root {
     --black: #100f10;
-    --blue: #265158;
+    --blue: #89a6c1;
+    --darkblue: #0d1526;
     --dark-brown: #261A17;
     --white: #dcd9c9;
     --brown: #8F634F;
@@ -16,13 +17,15 @@ made by aura
 
 /* base theme*/
 html {
-    font-family: 'Azeret Mono', serif;
+    font-family: 'DM Sans', serif;
     font-size: .8rem;
     letter-spacing: -1px;
     color: var(--black);
     background-image: url('images/bg1.png');
     background-repeat: repeat;
+    background-size: 20%;
     image-rendering: pixelated;
+    cursor: url('cursor.cur'), auto;
 }
 
 body {
@@ -33,7 +36,10 @@ body {
 }
 
 header {
-    height: 300px;
+    display: flex;
+    margin: 5rem 2rem 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
@@ -43,8 +49,12 @@ footer {
 
 a {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 1rem;
+    font-size: 1.3rem;
 	text-decoration: none;
+    color: var(--blue);
+}
+
+a footer {
     color: var(--blue);
 }
 
@@ -59,8 +69,36 @@ a:hover{
     border: 2rem solid transparent;
 	border-image-source: url('images/box2.png');
     border-image-slice: 16; 
-    border-image-repeat: repeat;
     border-image-outset: .5rem;
+}
+
+.frames {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    filter: drop-shadow(rgba(0, 0, 0, 0.74) .5rem .5rem);
+}
+
+#frame1 {
+    width: 20%;
+}
+
+#frame2 {
+    width: 25%;
+}
+
+#frame3 {
+    width: 80%;
+    position: relative;
+    left: 4.5rem;
+    top: -1.5rem;
+}
+
+#frame4 {
+    width: 40%;
+    position: relative;
+    bottom: 3rem;
+    left: .5rem;
 }
 
 /* blog */
@@ -102,4 +140,8 @@ iframe {
     margin: 0 auto;
     padding: 1rem 2rem .2rem;
     width: max-content;
+}
+
+h3 a {
+    font-size: 1.3em;
 }
