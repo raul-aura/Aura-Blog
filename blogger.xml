@@ -23,7 +23,18 @@
  <div class='main' id='main'>
   <aside class='sidebar'>
   <div class='about'>
-  This blog is under construction.
+  <h3 class='sidetitle'>⊹ Sobre o webmaster</h3>
+  <p class='sidetext'>Me chamo Aura. Sou desenvolvedor e designer de jogos focado em jogos de terror e aventura RPG com formação acadêmica. 
+  Aqui eu faço desabafos sobre o mundo de desenvolvimento de jogos e como eu superei alguns obstáculos (existem muitos).</p> 
+  <p class='sidetext'> Gosto muito de estudar religião, magia, astronomia e arte, então sempre estou incluindo esses assuntos nos meus projetos.
+  Você pode conferir mais do que eu faço nos links abaixo:</p>
+  <h3 class='sidetitle'>⊹ Contato e redes</h3>
+  <ul> 
+  <li>email</li>
+  <li>patreon</li>
+  <li>youtube</li>
+  <li>tumblr</li>
+  </ul>
   </div>
     <div class='games'>
   <marquee>This blog is clearly under construction...</marquee>

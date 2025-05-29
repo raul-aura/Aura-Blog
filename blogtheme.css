@@ -114,7 +114,10 @@ footer a {
 /* blog */
 
 .blog-posts {
-    margin: 1rem 1rem 0;
+    margin: 0 0 .7rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .date-posts {
@@ -123,7 +126,6 @@ footer a {
 	border-image-source: url('images/box1.png');
     border-image-slice: 16; 
     border-image-repeat: repeat;
-    padding: .5rem;
     margin-left: 1.5rem;
 }
 
@@ -132,7 +134,7 @@ footer a {
     color: var(--white);
     border: .1rem solid var(--black);
     margin: 0%;
-    padding: .5rem;
+    padding: .314rem;
     width: max-content;
 }
 
@@ -153,13 +155,18 @@ iframe {
 }
 
 h3 a {
-    font-size: 1.3em;
+    font-size: 1.2em;
+    margin: 0 0 .7rem 0;
+}
+
+h4 {
+    margin: 0 0 .7rem 0;
 }
 
 /* sidebar */
 
 .sidebar {
-    width: 25%;
+    min-width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -169,10 +176,26 @@ h3 a {
 .about {
     background-color: var(--darkblue);
     color: var(--white);
-    padding: 1rem;
+    padding: .8rem;
+    border: 1px solid var(--blue);
 }
 
 .games {
     background-color: var(--white);
-    padding: 1rem;
+    padding: .8rem;
+    border: 1px solid var(--blue);
+}
+
+.sidetitle {
+    margin: 0 0 .7rem 0;
+    font-size: 1rem;
+}
+
+.sidetext {
+    margin: 0 0 .7rem 0;
+}
+
+ul {
+    margin: 0;
+    padding-left: 2rem;
 }
