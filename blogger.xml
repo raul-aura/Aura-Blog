@@ -7,6 +7,7 @@
 <b:skin><![CDATA[]]></b:skin>
 </head>
 <body>
+<img class='moldura' src="images/moldura1.png"></img>
  <header id='header'>
  <div class='frames' id='frame1'>
   <img  src="images/frame1.png"></img>
