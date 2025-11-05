@@ -1,0 +1,54 @@
+/* 
+-------------------------------------
+made by aura
+-------------------------------------
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@font-face {
+  font-family: 'medieval';
+  src: url('https://raul-aura.github.io/Aura-Blog/font/JBLACK.TTF') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pixel';
+  src: url('https://raul-aura.github.io/Aura-Blog/font/GothicPixels.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'serif';
+  src: url('https://raul-aura.github.io/Aura-Blog/font/ZTBrosOskon90s-Regular.otf') format('opentype');
+  font-style: normal;
+}
+
+:root {
+    --black: #100f10;
+    --white: #dcd9c9;
+    --blue: #95b1b0;
+    --green: #8b9455;
+    --red: #3d151d;
+}
+
+/* base theme*/
+html {
+    cursor: url('cursor.cur'), auto;
+}
+
+body {
+    font-family: 'DM Sans', serif;
+    font-size: .9rem;
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: var(--black);
+    margin: auto;
+    max-width: 80%;
+}
+
+.introbox {
+    max-width: 40%;
+    overflow-wrap: break-word;
+    line-height: 200%;
+}

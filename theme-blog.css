@@ -8,12 +8,10 @@ made by aura
 
 :root {
     --black: #100f10;
-    --lightblue: #89a6c1;
-    --blue: #728ca3;
-    --darkblue: #172442;
-    --dark-brown: #261A17;
     --white: #dcd9c9;
-    --brown: #8F634F;
+    --blue: #95b1b0;
+    --green: #8b9455;
+    --red: #3d151d;
 }
 
 /* base theme*/
@@ -54,14 +52,14 @@ header {
 footer {
 	text-align: center;
     margin: 2rem;
-    color: var(--lightblue);
+    color: var(--blue);
 }
 
 a {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.2rem;
 	text-decoration: none;
-    color: var(--darkblue);
+    color: var(--red);
 }
 
 a:hover{
@@ -69,7 +67,7 @@ a:hover{
 }
 
 footer a {
-    color: var(--lightblue);
+    color: var(--blue);
 }
 
 .box {
@@ -181,7 +179,7 @@ h4 {
 }
 
 .about {
-    background-color: var(--darkblue);
+    background-color: var(--red);
     color: var(--white);
     padding: .8rem;
     border: 1px solid var(--blue);
