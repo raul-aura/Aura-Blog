@@ -7,21 +7,21 @@ made by aura
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 @font-face {
-  font-family: 'medieval';
-  src: url('https://raul-aura.github.io/Aura-Blog/font/JBLACK.TTF') format('truetype');
-  font-style: normal;
+    font-family: 'medieval';
+    src: url('https://raul-aura.github.io/Aura-Blog/font/JBLACK.TTF') format('truetype');
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'pixel';
-  src: url('https://raul-aura.github.io/Aura-Blog/font/GothicPixels.ttf') format('truetype');
-  font-style: normal;
+    font-family: 'pixel';
+    src: url('https://raul-aura.github.io/Aura-Blog/font/GothicPixels.ttf') format('truetype');
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'serif';
-  src: url('https://raul-aura.github.io/Aura-Blog/font/ZTBrosOskon90s-Regular.otf') format('opentype');
-  font-style: normal;
+    font-family: 'serif';
+    src: url('https://raul-aura.github.io/Aura-Blog/font/ZTBrosOskon90s-Regular.otf') format('opentype');
+    font-style: normal;
 }
 
 :root {
@@ -32,23 +32,77 @@ made by aura
     --red: #3d151d;
 }
 
-/* base theme*/
+/* base theme */
 html {
     cursor: url('cursor.cur'), auto;
 }
 
 body {
+    margin: 0 auto;
+    max-width: 80%;
     font-family: 'DM Sans', serif;
     font-size: .9rem;
     font-weight: 500;
     letter-spacing: -1px;
     color: var(--black);
-    margin: auto;
-    max-width: 80%;
+}
+
+/* texts */
+h1, h2, h3, p {
+    margin: 0;
+}
+
+/* intro */
+#intro {
+    margin: 2rem 0 0;
+    display: flex;
+    position: relative;
+    transition: opacity .5s ease;
 }
 
 .introbox {
     max-width: 40%;
+    padding: 2rem 0 0 2rem;
     overflow-wrap: break-word;
     line-height: 200%;
+    transition: opacity .5s ease;
+}
+
+.introimg {
+    position: relative;
+    top: 60px;
+    left: 200px;
+    width: 400px;
+    height: 650px;
+    background-color: var(--black);
+    transition: top 1s ease, left 1s ease;
+}
+
+body.intro-gone #intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+body.intro-gone .introimg {
+    top: 0px;
+    left: -600px;
+}
+
+body.intro-gone #intro .introbox {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* portfolio */
+#portfolio {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+body.intro-gone #portfolio {
+    opacity: 1;
+    pointer-events: auto;
 }

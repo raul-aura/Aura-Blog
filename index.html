@@ -11,13 +11,30 @@
 
 <body>
 
-    <div class="introbox">
-        <h1>welcome.</h1>
-        <p>in a castle, lies an utterly chaotic warlock.
-            <br>eager to conquer the world through his gloomy poetry, he finds beauty in the interweave of tragedy with hope, and the transformation of failure into triumph.
-            <br>although the art of creation can be tricky and bittersweet – at minimum – his passion for making dreams come true seems to conquer any obstacle.</p>
+    <div id="intro">
+        <div class="introbox">
+            <h1>welcome.</h1>
+            <p>
+                in a castle, lies an utterly chaotic warlock.
+                <br>eager to conquer the world through his gloomy poetry, he finds beauty in the interweave of tragedy with hope, and the transformation of failure into triumph.
+                <br>although the art of creation can be tricky and bittersweet – at minimum – his passion for making dreams come true seems to conquer any obstacle.
+            </p>
+            <button id="enterBtn">enter</button>
+        </div>
+
+        <div class="introimg"></div>
+    </div>
+
+    <div id="portfolio">
+        hello.
     </div>
 
 </body>
 
 </html>
+
+<script>
+    document.getElementById("enterBtn").addEventListener("click", () => {
+        document.body.classList.add("intro-gone");
+    });
+</script>
