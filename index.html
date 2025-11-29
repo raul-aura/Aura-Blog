@@ -11,6 +11,10 @@
 
 <body>
 
+    <div class="render">
+        <img src='images/render-body.png' />
+    </div>
+
     <div id="intro">
         <div class="introbox">
             <h1>welcome.</h1>
@@ -21,12 +25,37 @@
             </p>
             <button id="enterBtn">enter</button>
         </div>
-
-        <div class="introimg"></div>
     </div>
 
     <div id="portfolio">
-        hello.
+        <div class="chapter" id="section1" style="height:20vh;">Content 1</div>
+        <div class="chapter" id="section2" style="height:10vh;">Content 2</div>
+        <div class="chapter" id="section3" style="height:100vh;">Content 3</div>
+        <div class="chapter" id="section4" style="height:200vh;">Content 4</div>
+        <div class="chapter" id="section5" style="height:10vh;">Content 5</div>
+    </div>
+
+    <div class="vnav">
+        <div class="vnav-item active" data-target="section1">
+            <h1>A brief history</h1>
+            <div class="vnav-tick-main"></div>
+        </div>
+        <div class="vnav-item" data-target="section2">
+            <h1>A brief history</h1>
+            <div class="vnav-tick-main"></div>
+        </div>
+        <div class="vnav-item" data-target="section3">
+            <h1>A brief history</h1>
+            <div class="vnav-tick-main"></div>
+        </div>
+        <div class="vnav-item" data-target="section4">
+            <h1>A brief history</h1>
+            <div class="vnav-tick-main"></div>
+        </div>
+        <div class="vnav-item" data-target="section5">
+            <h1>A brief history</h1>
+            <div class="vnav-tick-main"></div>
+        </div>
     </div>
 
 </body>
@@ -36,5 +65,80 @@
 <script>
     document.getElementById("enterBtn").addEventListener("click", () => {
         document.body.classList.add("intro-gone");
+    });
+
+    const navItems = document.querySelectorAll('.vnav-item');
+    const nav = document.querySelector('.vnav');
+    const sections = Array.from(navItems).map(item => document.getElementById(item.dataset.target));
+
+    function layoutNavItems() {
+        const navHeight = nav.clientHeight;
+        const totalPageHeight = sections[sections.length - 1].offsetTop + sections[sections.length - 1].offsetHeight;
+
+        navItems[0].style.position = 'absolute';
+        navItems[0].style.top = '0px';
+
+        for (let i = 1; i < navItems.length; i++) {
+            const sectionTop = sections[i].offsetTop;
+            const firstSectionTop = sections[0].offsetTop;
+            const proportionalTop = ((sectionTop - firstSectionTop) / totalPageHeight) * navHeight;
+
+            navItems[i].style.position = 'absolute';
+            navItems[i].style.top = `${proportionalTop}px`;
+        }
+    }
+
+    function addIntermediateTicks() {
+        document.querySelectorAll('.vnav-tick').forEach(t => t.remove());
+
+        for (let i = 0; i < navItems.length - 1; i++) {
+            const startItemTop = parseFloat(navItems[i].style.top) + navItems[i].offsetHeight;
+            const endItemTop = parseFloat(navItems[i + 1].style.top);
+            const navSpace = endItemTop - startItemTop;
+
+            const sectionHeight = sections[i + 1].offsetTop - sections[i].offsetTop;
+            const ticksCount = Math.floor(sectionHeight / (window.innerHeight * 0.2));
+
+            for (let j = 1; j <= ticksCount; j++) {
+                const tick = document.createElement('div');
+                tick.className = 'vnav-tick';
+                tick.style.position = 'absolute';
+                tick.style.right = '0';
+                tick.style.top = startItemTop + (navSpace * j / (ticksCount + 1)) + 'px';
+                nav.appendChild(tick);
+            }
+        }
+    }
+
+    layoutNavItems();
+    addIntermediateTicks();
+    window.addEventListener('resize', () => {
+        layoutNavItems();
+        addIntermediateTicks();
+    });
+
+    nav.addEventListener('hover', () => {
+        // increase width and show text on hover
+    });
+
+    navItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            sections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY;
+        let activeIndex = 0;
+
+        sections.forEach((section, i) => {
+            if (scrollPos >= section.offsetTop) {
+                activeIndex = i;
+            }
+        });
+
+        navItems.forEach((item, i) => {
+            item.classList.toggle('active', i === activeIndex);
+        });
     });
 </script>
