@@ -7,44 +7,38 @@ made by aura
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 @font-face {
-    font-family: 'medieval';
-    src: url('https://raul-aura.github.io/Aura-Blog/font/JBLACK.TTF') format('truetype');
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'pixel';
-    src: url('https://raul-aura.github.io/Aura-Blog/font/GothicPixels.ttf') format('truetype');
+    src: url('https://raul-aura.github.io/Aura-Blog/font/PixelOperator.ttf') format('truetype');
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'serif';
-    src: url('https://raul-aura.github.io/Aura-Blog/font/ZTBrosOskon90s-Regular.otf') format('opentype');
+    font-family: 'special';
+    src: url('https://raul-aura.github.io/Aura-Blog/font/blackletter.ttf') format('truetype');
     font-style: normal;
 }
 
 :root {
     --black: #100f10;
-    --white: #dcd9c9;
-    --blue: #95b1b0;
-    --green: #8b9455;
+    --white: #AAAAAA;
+    --blue: #2A404E;
     --red: #3d151d;
 }
 
 /* base theme */
 html {
     cursor: url('cursor.cur'), auto;
+    background-color: var(--black);
 }
 
 body {
     margin: 0 auto;
-    max-width: 80%;
+    max-width: 90%;
     font-family: 'DM Sans', serif;
     font-size: .9rem;
     font-weight: 500;
     letter-spacing: -1px;
-    color: var(--black);
+    color: var(--white);
 }
 
 /* texts */
@@ -52,125 +46,37 @@ h1, h2, h3, p {
     margin: 0;
 }
 
-/* render image */
-.render {
-    position: fixed;
-    left: 800px;
-    top: -40px;
-    width: 0px;
-    height: 920px;
-    background-color: var(--black);
-    transition: left 1s cubic-bezier(0.33, 1, 0.68, 1);
+a, a:visited {
+    color: var(--white);
+    text-decoration: none;
+    padding: .5rem;
 }
 
-.render img {
-    width: auto;
-    height: 100%;
+    a:hover {
+        color: var(--white);
+        text-decoration: underline;
+    }
+
+/* header */
+header {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-body.intro-gone .render {
-    left: -150px;
+header img {
+    width: 6%;
+    height: fit-content;
 }
 
-/* intro */
-#intro {
-    margin: 3rem 0 0;
-    position: relative;
-    transition: opacity .5s ease;
-}
-
-.introbox {
-    max-width: 40%;
-    padding: 2rem 0 0 2rem;
-    overflow-wrap: break-word;
-    line-height: 200%;
-    transition: opacity .5s ease;
-}
-
-body.intro-gone #intro {
-    position: absolute;
-    top: 0;
-    left: 0;
+nav {
     width: 100%;
-}
-
-body.intro-gone #intro .introbox {
-    opacity: 0;
-    pointer-events: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: .5rem;
 }
 
 /* portfolio */
-#portfolio {
-    margin: 3rem 0 0 275px;
-    opacity: 0;
-    pointer-events: none;
-    background-color: var(--blue);
-    transition: opacity .9s cubic-bezier(0.5, 0, 0.75, 0);
-}
+portfolio {
 
-body.intro-gone #portfolio {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.chapter {
-
-}
-
-/* navigation */
-.vnav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 200px;
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    pointer-events: auto;
-}
-
-.vnav-item {
-    width: 100%;
-    position: relative;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s, font-weight 0.2s;
-}
-
-    .vnav-item.active {
-        opacity: 1;
-        font-weight: bold;
-    }
-
-    .vnav-item h1 {
-        font-family: pixel;
-        font-size: 14px;
-        text-transform: capitalize;
-        letter-spacing: 1px;
-    }
-
-.vnav-tick-main {
-    position: absolute;
-    right: 0; 
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 2px;
-    background: black;
-    transition: width 0.2s, background 0.2s;
-}
-
-.vnav-item.active .vnav-tick-main {
-    width: 20px;
-    background: dodgerblue;
-}
-
-.vnav-tick {
-    width: 12px;
-    height: 2px;
-    background: black;
-    opacity: 0.3;
-    margin: 0;
 }
