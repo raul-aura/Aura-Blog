@@ -32,13 +32,14 @@ html {
 }
 
 body {
+    min-height: 100vh;
     margin: 0 auto;
-    max-width: 90%;
     font-family: 'DM Sans', serif;
     font-size: .9rem;
     font-weight: 500;
     letter-spacing: -1px;
     color: var(--white);
+    overflow-x: hidden;
 }
 
 /* texts */
@@ -59,9 +60,15 @@ a, a:visited {
 
 /* header */
 header {
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    align-items: center;
+    margin: 0 2rem 0 2rem;
+    z-index: 3;
 }
 
 header img {
@@ -77,6 +84,94 @@ nav {
 }
 
 /* portfolio */
-portfolio {
-
+.portfolio {
+    height: 200vh;
+    z-index: 1;
 }
+
+.folder-stack {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -20%);
+}
+
+.folder {
+    width: 400px;
+    height: 280px;
+    margin: -5rem 0;
+    transition: all 0.4s ease;
+    position: relative;
+    background: var(--red);
+}
+
+    .folder:hover {
+        z-index: 10;
+    }
+
+    .folder .preview {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 90%;
+        height: 90%;
+        transform: translate(-50%, 0%);
+        transition: transform 0.4s ease 0.1s;
+        background: var(--white);
+        z-index: 0;
+    }
+
+    .folder::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--red);
+        z-index: 1;
+    }
+
+    .folder:hover .preview {
+        transform: translate(-50%, -30%);
+    }
+
+.info-left, .info-right {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+}
+
+.info-left {
+    left: 40px;
+}
+
+#infoProjectName {
+    font-size: 110%;
+}
+
+#infoProjectDesc {
+    font-size: 90%;
+}
+
+.info-right {
+    right: 40px;
+    text-align: right;
+}
+
+/* individual projects*/
+
+#projectContainer {
+    z-index: 2;
+}
+
+.project-page {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* project 1*/
+
+
+/* project 2*/

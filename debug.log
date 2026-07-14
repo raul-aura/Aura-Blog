@@ -1,0 +1,5 @@
+[0526/141110.995:ERROR:viz_main_impl.cc(162)] Exiting GPU process due to errors during initialization
+[0526/141111.135:ERROR:viz_main_impl.cc(162)] Exiting GPU process due to errors during initialization
+[0526/141111.265:ERROR:gpu_init.cc(441)] Passthrough is not supported, GL is disabled
+[0526/141245.951:INFO:CONSOLE(99)] "Fetch API cannot load file:///C:/Users/Aura/Documents/Brands/Auracpp/Blog/projects/project1.html. URL scheme "file" is not supported.", source: file:///C:/Users/Aura/Documents/Brands/Auracpp/Blog/main.js (99)
+[0526/141245.951:INFO:CONSOLE(99)] "Uncaught (in promise) TypeError: Failed to fetch", source: file:///C:/Users/Aura/Documents/Brands/Auracpp/Blog/main.js (99)
