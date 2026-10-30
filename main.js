@@ -1,7 +1,31 @@
 
+import { init as initSanatorium } from "./projects/sanatorium.js";
+
+const projectScripts = {
+    sanatorium: initSanatorium,
+};
+
 const data = [
-    { name: "ESPIRITO Delusion", desc: "Explore the corrupted school, solve puzzles, and battle evil monsters in turn-based combat." },
-    { name: "Sweet Dreams Core", desc: "Robust Unreal Engine 5 plugin that act as a framework to develop games quicker." }
+    {
+        name: "Sanatorium",
+        desc: "Escape the sanatorium while completing tasks, avoiding a relentless entity, and surviving the fear of being chased.",
+        file: "sanatorium"
+    },
+    {
+        name: "Dawn of Piracy: Caribbean Tides",
+        desc: "Embark on the ultimate pirate adventure: command your ship, battle in epic naval combat, and explore a vast RPG caribbean world.",
+        file: "dop"
+    },
+    {
+        name: "Whiskers' Wish",
+        desc: "Explore a city park as an abandoned kitten, solving puzzles, battling enemies, and searching for a forever home.",
+        file: "whiskers"
+    },
+    {
+        name: "ESPIRITO Delusion",
+        desc: "Explore the corrupted school, solve puzzles, and battle evil monsters in turn-based combat.",
+        file: "espirito"
+    }
 ];
 
 const stackDiv = document.getElementById("portfolio");
@@ -14,19 +38,46 @@ const defaultDesc = descEl.textContent;
 
 const countEl = document.getElementById("projectCount");
 countEl.textContent = data.length;
-
+ 
 const projectContainer = document.getElementById('projectContainer');
 const closeButton = document.getElementById("closeProject");
 
+const perspective = 350;
+const size = 0.92;
+const sizeOthers = size * 0.9;
+
 let folders = [];
 
-function createFolders() {
-    data.forEach((proj, i) => {
+async function loadHTML(file) {
+    const response = await fetch(`projects/${file}.html`);
+    return await response.text();
+}
+
+async function loadPreview(file) {
+    const response = await fetch(`projects/${file}.html`);
+    const html = await response.text();
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    return doc.querySelector(".project-preview");
+}
+
+async function createFolders() {
+    for (const [i, proj] of data.entries()) {
         const folder = document.createElement("div");
         folder.className = "folder";
 
         const preview = document.createElement("div");
         preview.className = "preview";
+
+        if (proj.file) {
+            const projectPreview = await loadPreview(proj.file);
+
+            if (projectPreview) {
+                preview.appendChild(projectPreview);
+            }
+        }
 
         folder.appendChild(preview);
 
@@ -34,16 +85,16 @@ function createFolders() {
             nameEl.textContent = proj.name;
             descEl.textContent = proj.desc;
 
-            const offset = 160;
+            const offset = 20;
             const offsetHalf = offset * 0.5;
 
             folders.forEach((f, j) => {
                 if (j < i) {
-                    f.style.transform = `perspective(500px) rotateX(-20deg) translateY(-${offset}px) scale(0.8)`;
+                    f.style.transform = `perspective(${perspective}px) rotateX(-20deg) translateY(-${offset}px) scale(${sizeOthers})`;
                 } else if (j > i) {
-                    f.style.transform = `perspective(500px) rotateX(-20deg) translateY(${offsetHalf}px) scale(0.8)`;
+                    f.style.transform = `perspective(${perspective}px) rotateX(-20deg) translateY(${offsetHalf}px) scale(${sizeOthers})`;
                 } else if (j === i) {
-                    f.style.transform = "perspective(500px) rotateX(0deg)";
+                    f.style.transform = `perspective(${perspective}px) rotateX(0deg) translateY(0) scale(${size})`;
                 }
             });
 
@@ -63,77 +114,94 @@ function createFolders() {
             descEl.textContent = defaultDesc;
 
             folders.forEach((f) => {
-                f.style.transform = "perspective(500px) rotateX(-20deg) scale(1.0)";
+                f.style.transform = `perspective(${perspective}px) rotateX(-20deg) scale(${size})`;
             });
         });
 
         folder.addEventListener('click', async () => {
-            const index = i;
-
+            const rect = preview.getBoundingClientRect();
             const clone = preview.cloneNode(true);
 
-            const rect = preview.getBoundingClientRect();
+            const layer = document.createElement("div");
 
-            preview.style.opacity = '0';
+            layer.style.position = "fixed";
+            layer.style.left = "0";
+            layer.style.top = "0";
+            layer.style.width = "100vw";
+            layer.style.height = "100vh";
+            layer.style.margin = "0";
+            layer.style.padding = "0";
+            layer.style.zIndex = "9999";
+            layer.style.pointerEvents = "none";
+            layer.style.overflow = "hidden";
 
-            const computed = window.getComputedStyle(preview);
+            clone.style.position = "absolute";
+            clone.style.left = `${rect.left}px`;
+            clone.style.top = `${rect.top}px`;
+            clone.style.width = `${rect.width}px`;
+            clone.style.height = `${rect.height}px`;
+            clone.style.margin = "0";
+            clone.style.transform = "none";
 
-            clone.style.position = 'fixed';
-            clone.style.left = rect.left + 'px';
-            clone.style.top = rect.top + 'px';
-            clone.style.width = rect.width + 'px';
-            clone.style.height = rect.height + 'px';
+            layer.appendChild(clone);
+            document.body.appendChild(layer);
 
-            clone.style.transform = 'none';
-            clone.style.transition = 'all 0.6s ease';
+            preview.style.opacity = "0";
 
-            clone.style.margin = '0';
-            clone.style.zIndex = '2';
-            clone.style.background = computed.background;
+            const top = rect.top;
+            const right = window.innerWidth - rect.right;
+            const bottom = window.innerHeight - rect.bottom;
+            const left = rect.left;
 
-            document.body.appendChild(clone);
+            layer.style.clipPath = `inset(${top}px ${right}px ${bottom}px ${left}px)`;
+
+            layer.offsetHeight;
 
             requestAnimationFrame(() => {
-                clone.style.left = '0';
-                clone.style.top = '0';
-                clone.style.width = '100vw';
-                clone.style.height = '100vh';
-                clone.style.transform = 'scale(1.0)';
+                layer.style.transition = "clip-path 0.6s ease";
+                layer.style.clipPath = "inset(0)";
             });
 
-            clone.addEventListener('transitionend', async () => {
+            layer.addEventListener("transitionend", async () => {
+                projectContainer.innerHTML = "";
+                if (proj.file) {
+                    projectContainer.innerHTML = await loadHTML(proj.file);
+                }
 
-                const template = document.getElementById(`project${index + 1}-template`);
+                const init = projectScripts[proj.file];
 
-                projectContainer.innerHTML = '';
-                projectContainer.appendChild(
-                    template.content.cloneNode(true)
-                );
+                if (init) {
+                    init(projectContainer);
+                }
 
-                clone.remove();
+                projectContainer.style.opacity = "1";
+                projectContainer.style.pointerEvents = "all";
+                closeButton.style.opacity = "1";
+                stackDiv.style.display = "none";
 
-                projectContainer.style.opacity = '1';
-                preview.style.opacity = '1';
-                closeButton.style.opacity = '1';
-                stackDiv.style.display = 'none';
+                layer.style.transition = "opacity 0.3s ease";
+                layer.style.opacity = "0";
+                await new Promise(resolve => setTimeout(resolve, 300));
+
+                layer.remove();
+                preview.style.opacity = "1";
 
             }, { once: true });
-
         });
 
         stack.appendChild(folder);
         folders.push(folder);
+    };
+
+    folders.forEach((f) => {
+        f.style.transform = `perspective(${perspective}px) rotateX(-20deg) scale(${size})`;
     });
 }
 
 createFolders();
 
-folders.forEach((f) => {
-    f.style.transform = "perspective(500px) rotateX(-20deg)";
-});
-
 const folderCount = data.length;
-const totalMovementNeeded = (folderCount - 1) * 200;
+const totalMovementNeeded = (folderCount - 1) * 140;
 const maxScrollDistance = document.body.scrollHeight - window.innerHeight;
 const multiplier = totalMovementNeeded / maxScrollDistance;
 
@@ -148,6 +216,7 @@ closeButton.style.opacity = '0';
 closeButton.addEventListener('click', () => {
     projectContainer.style.transition = 'opacity 0.3s ease';
     projectContainer.style.opacity = '0';
+    projectContainer.style.pointerEvents = 'none';
 
     projectContainer.addEventListener('transitionend', () => {
 
