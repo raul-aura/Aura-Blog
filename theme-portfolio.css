@@ -5,6 +5,7 @@ made by aura
 */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face {
     font-family: 'pixel';
@@ -44,6 +45,22 @@ body {
 
 button {
     font-family: 'DM Sans', sans-serif;
+}
+
+.dot {
+    height: .7rem;
+    width: .7rem;
+    background-color: #a89442;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-green {
+    height: .7rem;
+    width: .7rem;
+    background-color: #325424;
+    border-radius: 50%;
+    display: inline-block;
 }
 
 /* texts */
@@ -145,7 +162,7 @@ nav {
         position: absolute;
         inset: 0;
         z-index: 1;
-        background-image: url('images/folder.png');
+        background-image: url('https://raul-aura.github.io/Aura-Blog/images/folder.png');
         background-size: cover;
     }
 
@@ -246,14 +263,6 @@ nav {
     width: 40%;
 }
 
-.dot {
-    height: .7rem;
-    width: .7rem;
-    background-color: #a89442;
-    border-radius: 50%;
-    display: inline-block;
-}
-
 .skills {
     background-color: var(--black);
     border-radius: 4px;
@@ -312,12 +321,131 @@ nav {
 /* project 2*/
 .project-page.dop {
     background: fixed;
-    background-image: url('images/dop-bg.jpg');
+    background-image: url('https://raul-aura.github.io/Aura-Blog/images/dop-bg.jpg');
     background-position: center;
 }
 
 .project-content.dop {
-    padding: 8rem 3rem;
+    padding: 8rem;
     display: flex;
     flex-direction: column;
 }
+
+.header-dop {
+    margin-bottom: 1rem;
+}
+
+.header-content {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9d8c6798;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.projectIntroduction {
+    max-width: 400px;
+}
+
+.projectMetadata {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.steam {
+    font-size: 150%;
+}
+
+.main-dop{
+    display: flex;
+    gap: 1rem;
+}
+
+.projectOverview, .projectContributions {
+    background-color: var(--white);
+    padding: 1rem;
+}
+
+.projectContributions {
+    width: 120%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.contributionGrid {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+/* project 3*/
+.project-page.whiskers {
+    background: fixed;
+    background-image: url('images/whiskers-bg.jpg');
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-content.whiskers {
+    padding: 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.whiskers-content {
+    background-color: #edda87e5;
+    display: flex;
+    max-width: 800px;
+    padding: 1rem;
+}
+
+/* project 4*/
+.project-page.espirito {
+    background: fixed;
+    background-image: url('images/espirito-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-color: black;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-content.espirito {
+    padding: 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.espirito-content {
+    background-color: #000000e8;
+    display: flex;
+    max-width: 800px;
+    padding: 1rem;
+}
+
+video {
+    max-width: 50%;
+}
+
+.espirito-about {
+    padding: 1rem;
+}
+
+.espirito-logo {
+    max-width: 60%;
+    margin-bottom: 2rem;
+}
+
+.steam.espirito {
+    color: var(--white);
+}
+
